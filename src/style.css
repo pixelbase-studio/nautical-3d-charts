@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/*
+  Tailwind v4 - CSS-first configuration.
+  Customise your design tokens here using @theme.
+  No tailwind.config.js needed!
+
+  Example:
+  @theme {
+    --color-brand: #3b82f6;
+    --font-sans: 'Inter', sans-serif;
+    --radius-lg: 0.75rem;
+  }
+*/

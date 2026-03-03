@@ -1,14 +1,150 @@
 @import "tailwindcss";
 
-/*
-  Tailwind v4 - CSS-first configuration.
-  Customise your design tokens here using @theme.
-  No tailwind.config.js needed!
+@theme {
+  /* ── FONTS ── */
+  --font-serif: 'Libre Baskerville', serif;
 
-  Example:
-  @theme {
-    --color-brand: #3b82f6;
-    --font-sans: 'Inter', sans-serif;
-    --radius-lg: 0.75rem;
+  /* ── PORTICA (yellow) ── */
+  --color-portica-50:  #FEFDE8;
+  --color-portica-100: #FFFCC2;
+  --color-portica-200: #FFF489;
+  --color-portica-300: #FFEA61;
+  --color-portica-400: #FDD412;
+  --color-portica-500: #ECBA06;
+  --color-portica-600: #CC9002;
+  --color-portica-700: #A36605;
+  --color-portica-800: #86500D;
+  --color-portica-900: #724211;
+  --color-portica-950: #432205;
+
+  /* ── JORDY BLUE ── */
+  --color-jordy-50:  #F0F7FE;
+  --color-jordy-100: #DEECFB;
+  --color-jordy-200: #C4E0F9;
+  --color-jordy-300: #88C1F2;
+  --color-jordy-400: #6DAEED;
+  --color-jordy-500: #4B90E6;
+  --color-jordy-600: #3674DA;
+  --color-jordy-700: #2D5FC8;
+  --color-jordy-800: #2A4EA3;
+  --color-jordy-900: #274481;
+  --color-jordy-950: #1C2B4F;
+
+  /* ── OLIVINE (green) ── */
+  --color-olivine-50:  #F4F9EC;
+  --color-olivine-100: #E6F1D6;
+  --color-olivine-200: #D0E5B1;
+  --color-olivine-300: #A5CC72;
+  --color-olivine-400: #92BF5C;
+  --color-olivine-500: #75A33F;
+  --color-olivine-600: #59822E;
+  --color-olivine-700: #466427;
+  --color-olivine-800: #3A5024;
+  --color-olivine-900: #334522;
+  --color-olivine-950: #18250E;
+
+  /* ── TROPICAL BLUE ── */
+  --color-tropical-50:  #F1F6FD;
+  --color-tropical-100: #DFEAFA;
+  --color-tropical-200: #C6DAF7;
+  --color-tropical-300: #9FC3F1;
+  --color-tropical-400: #71A3E9;
+  --color-tropical-500: #5082E1;
+  --color-tropical-600: #3B65D5;
+  --color-tropical-700: #3253C3;
+  --color-tropical-800: #2E459F;
+  --color-tropical-900: #2A3D7E;
+  --color-tropical-950: #1E274D;
+
+  /* ── SHIRAZ (crimson/red) ── */
+  --color-shiraz-50:  #FFF1F2;
+  --color-shiraz-100: #FFE4E6;
+  --color-shiraz-200: #FFCCD3;
+  --color-shiraz-300: #FEA3AF;
+  --color-shiraz-400: #FD6F86;
+  --color-shiraz-500: #F73C5F;
+  --color-shiraz-600: #E41A49;
+  --color-shiraz-700: #C0103E;
+  --color-shiraz-800: #AB113E;
+  --color-shiraz-900: #8A1138;
+  --color-shiraz-950: #4D041A;
+
+  /* ── ATHENS GRAY ── */
+  --color-athens-50:  #F8F8FA;
+  --color-athens-100: #F3F2F5;
+  --color-athens-200: #E9E8ED;
+  --color-athens-300: #D6D4DE;
+  --color-athens-400: #BFBBCA;
+  --color-athens-500: #A69FB3;
+  --color-athens-600: #91889F;
+  --color-athens-700: #7F758C;
+  --color-athens-800: #696275;
+  --color-athens-900: #575161;
+  --color-athens-950: #393540;
+
+  /* ── BASE ── */
+  --color-base-white: #FFFFFF;
+  --color-base-black: #020101;
+
+  /* ── SEMANTIC ALIASES (used in the design) ── */
+  --color-navy:      #22303c;
+  --color-crimson:   var(--color-shiraz-800);
+  --color-yellow:    var(--color-portica-300);
+  --color-light-blue: var(--color-jordy-300);
+  --color-hero-bg:   var(--color-jordy-200);
+  --color-text-dark: #4a4a4a;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-serif);
+    color: var(--color-text-dark);
   }
-*/
+}
+
+@layer components {
+
+  .placeholder {
+    @apply bg-athens-200 flex items-center justify-center text-athens-600 text-xs tracking-wide;
+  }
+
+  .btn-crimson {
+    @apply inline-block bg-crimson text-white font-bold text-sm px-6 py-3 rounded transition-colors hover:bg-shiraz-900;
+  }
+  .feature-item {
+    @apply inline-block text-white font-bold text-sm transition-opacity hover:opacity-85;
+  }
+  .btn-yellow {
+    @apply inline-block bg-yellow text-navy font-bold text-xs px-4 py-2 rounded transition-opacity hover:opacity-85 text-center;
+  }
+
+  .eyebrow {
+    @apply italic text-light-blue text-lg mb-3 block;
+  }
+
+  .product-heading {
+    @apply text-white font-normal text-2xl leading-snug uppercase mb-4 text-balance;
+  }
+
+  .product-body {
+    @apply text-light-blue text-sm leading-relaxed mb-6;
+  }
+
+  .img-main {
+    @apply top-0 right-0 w-full h-auto aspect-3/2 rounded-2xl overflow-hidden;
+
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .img-secondary {
+    @apply absolute -bottom-6 -left-6 w-2/6 aspect-4/3 rounded-2xl overflow-hidden shadow-sm;
+  }
+
+  .wave-divider {
+    filter: drop-shadow(0 0 0 var(--color-navy));
+  }
+}

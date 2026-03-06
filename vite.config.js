@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  base: '/',
+  base: '/nautical-3d-charts/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
